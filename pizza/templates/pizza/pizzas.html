@@ -1,0 +1,19 @@
+{% extends 'pizza/base.html' %}
+<style>
+    .pizza{
+    height:20vh;
+    }
+
+</style>
+{% block 'body' %}
+<h1>Pizza page</h1>
+<div class=" pizza position-absolute top-50 start-50 translate-middle border border-3 p-5 " >
+<h2>{{ note }}</h2>
+<form action="{% url 'pizzas' %}" method="post">
+    {% csrf_token %}
+    {{ formset }}
+    <input type="submit" value="Order pizza">
+</form>
+</div>
+
+{% endblock %}
